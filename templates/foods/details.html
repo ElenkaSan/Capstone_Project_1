@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block title %}{{recipes['title']}}{% endblock %}
+{% block content %}
+<div class="container text-secondary">
+  {% if recipes %}
+  <div id="recipe-d" class="row justify-content-md-center">
+    <div class="jumbotron col-md-9 my-4 px-4">
+      <h2 class="text-warning display-4 text-info text-center">{{recipes['title']}}</h2>
+        <button id="print" class="btn btn-secondary btn-lg m-2"><i class="fas fa-print"></i>
+        </button>
+        <a href="/" class="btn btn-info btn-lg m-2"><i class="fas fa-home"></i></a>
+          {% if g.user %}
+           <!-- <button data-id="{{recipes.id}}" class='fav btn btn-sm'> -->
+          {% else %}
+          <a href="/login">
+            <button type="button" class="btn btn-outline-danger m-2"><i class="fas fa-heart fa-2x">
+           </i></button>
+          </a>
+          {% endif %}
+          <hr>
+          <div class="row justify-content-center">
+            <div class="col-md-6 my-2">
+              <div class="card border border-warning">
+                <img class="recipe-img" src="{{recipes.image}}" alt="{{recipes.name}}">
+              </div>
+              <div class="card-body">
+              <h3 class="text-center text-info recipe-subtitle">Steps</h3>
+              {% for recipe in recipes.analyzedInstructions %}
+              <ul class="list-group list-group-flush text-light">
+                  {% if recipe.name %}
+                  <P>{{recipe.name}}</P>
+                  {% endif %}
+                  {% if recipe.steps %}
+                  {% for s in recipe.steps %}
+                  <li>{{s.step}}</li>
+                  <br>
+                  {% endfor %}
+                  {% elif recipe.instructions %}
+                  <p class="instructions">{{recipe.instructions.replace('.', '. \n \n')}}</p>
+                  {% else %}
+                  <p class="">Sorry!</p>
+                  <p class="">We can't find any instructions for this recipe!</p>
+                  {% endif %}
+              </ul>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="col-md-5 col-lg-5 m-2">
+            <div class="info-list border-warning">
+              <ul>
+                <li class="lead my-1">Total Cook Time: {{recipes.readyInMinutes}} minutes</li>
+                <li class="lead my-1">Serves: {{recipes.servings}}</li>
+              </ul>
+              <div>
+              <ul>
+                {% if recipes.calories %}
+                  <li class="text-info">Calories</li>
+                {% endif %}
+                {% if recipes.sustainable %}
+                  <li class="text-info">Sustainable</li>
+                {% endif %}
+                {% if recipes.ketogenic %}
+                  <li class="text-info">Ketogenic</li>
+                {% endif %}
+                {% if recipes.vegetarian %}
+                  <li class="text-info">Vegetarian</li>
+                {% endif %}
+                {% if recipes.vegan %}
+                  <li class="text-info">Vegan</li>
+                {% endif %}
+                {% if recipes.glutenFree %}
+                  <li class="text-info">Gluten free</li>
+                {% endif %}
+                {% if recipes.dairyFree %}
+                  <li class="text-info">Dairy free</li>
+                {% endif %}
+                {% if recipes.whole30 %}
+                  <li class="text-info">Whole30</li>
+                {% endif %}
+                <hr>
+                {% if 'likes' not in recipes%}
+                  <li class="text-success">How many likes has this recipe? {{recipes['aggregateLikes']}} <i class="fas fa-thumbs-up"></i></li>
+                {% else %}
+                  <li class="text-success">How many likes has this recipe? {{recipes['likes']}} <i class="fas fa-thumbs-up"></i></li>
+                {% endif %}
+                {% if recipes.veryHealthy %}
+                  <li><i class="fas fa-hand-holding-heart text-danger"></i> Healthy</li>
+                {% endif %}
+                {% if recipes.veryPopular %}
+                  <li><i class="fas fa-fire text-warning"></i> Popular</li>
+                {% endif %}
+              </ul>
+              <hr>
+              <h3 class="text-center recipe-subtitle text-info">Ingredients</h3>
+                <ul class="list-group list-group-flush text-center text-light">
+                  {% for i in recipes.extendedIngredients %}
+                  <li data-id="{{i.id}}">{{i.original}}</li>
+                  <br>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <a href="{{recipes.sourceUrl}}" target="_blank" class="card-text mb-1 d-block text-center">
+            <h6 class="text-secondary font-weight-bold text-left"> Recipe from 
+              <i class="fas fa-pizza-slice"></i> {{recipes.sourceName}}</h6> </a>
+        </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="jumbotron my-4">
+    <div class="container">
+      <h1 class="display-4 text-danger text-center">Sorry! Failed to get recipe information!</h1>
+      <a href="/" class="neon btn btn-outline-warning btn-lg m-2"><i class="fas fa-home"></i></a>    
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

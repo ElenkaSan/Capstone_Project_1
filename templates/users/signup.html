@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Registration{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div style="opacity: 0.9;" class="jumbotron col-md-8 my-4 px-4">
+      <h1 class="my-3 text-center text-warning font-italic">Registration form</h1>
+        <form id="signup-form" method='POST'>
+          <div class="form-group">
+            {{ form.hidden_tag() }}
+            <div class="form-row">
+              {% for field in form if field.widget.input_type != "hidden" %}
+                <div class="form-group col-md-6">
+                  {{field.label (class_="text-info h4")}}
+                  {{field (class_="form-control form-control-lg")}}
+                  {% for error in field.errors %}
+                    <h2 class="form-text text-danger">{{error}}</h2>
+                  {% endfor %}
+                </div>
+              {% endfor %}
+            </div>
+            <div class="m-0">
+              <button type="submit" class="btn btn-warning btn-lg m-2">
+                <i class="fas fa-user-plus"></i>
+                <!-- <h5>Signup</h5> -->
+              </button>
+              <a class="btn btn-info btn-lg m-2" href="/login">
+                <i class="fas fa-sign-in-alt"></i>
+              <!-- <h5>Login</h5> -->
+              </a>
+              <a href="/" class="btn btn-outline-info btn-lg m-2"><i class="fas fa-home"></i></a>
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

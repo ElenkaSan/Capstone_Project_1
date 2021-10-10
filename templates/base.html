@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+  href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+  <link rel="shortcut icon" type="image/png" href="/static/images/like2.gif">
+  <script src=" https://kit.fontawesome.com/d240c4c1b9.js" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/bootstrap.min1.css">
+  <!-- https://bootswatch.com/minty/ -->
+  <!-- https://crello.com/user/projects/614df7b020a4241476325cf0/ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=PT+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<link rel="shortcut icon" href="/static/favicon.ico">
+<link rel="stylesheet" href="/static/style.css"> 
+</head>
+<body class="bg-primary">
+  <div class="box">
+    <nav class="navbar navbar-expand-md bg-secondary">
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="logo" src="/static/images/logo.png" alt="logo">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/joke">What's Left in your Fridge <i class="fas fa-search"></i></a>
+          <a class="dropdown-item" href="/random">Random <i class="fas fa-search"></i></a>
+            <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/execise">Execises <i class="fas fa-running"></i></a>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="navbar-form col-sm-6 col-sm-8 mx-auto my-2" id="search" action="/find" role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Pasta or Gluten Free or Low Sodium" name="query" id="query">
+                <div class="input-group-btn input-group-append">
+                 <button class="btn btn-outline-warning" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+          </form>
+          <ul class="navbar-nav my-auto align-items-center">
+          {% if session["user_id"] %}
+          <li class="nav-item justify-content-center">
+            <a class="nav-link" href="/users/{{g.user.id}}"><h5> <img class="logo" src="/static/images/user1.gif" alt="logo">{{g.user.username}}</h5></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/favorites">
+              <h5> <img class="logo" src="/static/images/like2.gif" alt="logo"></h5>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"> <h4><i class="fas fa-sign-out-alt"></i></h4>
+              <!-- <span class="material-icons-outlined">
+              <h5 class="text-danger">Logout</h5>
+              </span> -->
+              </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/signup"><h5>Sign Up <i class="fas fa-user-plus"></i></h5></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">
+              <span class="material-icons-outlined">
+                <h5>Login <i class="fas fa-sign-in-alt"></i></h5>
+              </span></a>
+          </li>
+          {% endif %}
+          </ul>
+        </div>
+      </nav>
+      <div class="row">
+        <div class="container text-center  w-25">
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+        <div class="alert alert-{{ category }}"> <h4> {{ message }} </h4></div>
+        {% endfor %}
+        </div>
+      </div>
+      {% block content %}
+
+      {% endblock %}
+  </div>
+  <footer class="footer">
+    <div class="col-12">
+      <ul class="flux">
+        <li><a href="https://www.linkedin.com/in/elena-nurullina"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/ElenkaSan/HealthyTips"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a></li>
+    </ul>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/jquery"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="/static/helper.js"></script>
+  <script src="/static/app.js"></script>
+  <script src="/static/pic.js"></script>
+</body>
+</html>

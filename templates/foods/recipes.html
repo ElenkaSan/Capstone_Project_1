@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Recipes from Random{% endblock %}
+{% block content %}
+<div class="container">
+  {% if recipes %}
+    <div id="recipe-info" class="row justify-content-center align-items-center mt-2">
+        <div class="jumbotron col-3 my-4">
+          <div class="vertical-group" id="card">
+            <th><h5 class="text-warning">Refine Your Random Search</h5></th>
+              <tbody>
+                <form class="" id="card" action="/search" role="search">
+                  <select class="custom-select" name="diet" id="diet">
+                    <option selected> <span class="text-muted">Diets</span> </option>
+                     {% for diet in g.diets %}
+                       <option value="{{diet}}"> {{ diet.capitalize() }} </option>
+                     {% endfor %}
+                  </select>
+                  <select class="custom-select" name="cuisine" id="cuisine" data-container="body">
+                    <option selected> <span class="text-muted">Cuisines</span> </option>
+                      {% for cuisine in g.cuisines %}
+                        <option value="{{cuisine}}">{{ cuisine.capitalize() }}</option>
+                      {% endfor %}
+                  </select>
+                  <div class="input-group-btn">
+                    <button class="btn btn-outline-warning btn-lg m-2" type="submit"><i class="fas fa-utensils"></i></button>
+                    <a href="/" class="btn btn-outline-info btn-lg m-2"><i class="fas fa-home"></i></a>
+                  </div>
+                </form>
+              </tbody>
+            </div>
+          </div>
+        {% for r in recipes %}
+          <div class="jumbotron1 col-3 col-sm-10-6 m-2">
+            <a href="/recipes/{{r.id}}" data-id="{{r.id}}" class="show-recipe">
+              <div class="card border border-warning mb-4 mx-auto">
+                <img src="{{r.image}}" class="card-img-top" alt="{{r.name}}">
+                  <div class="card-body py-1">
+                    <h5 class="text-danger text-center card-title m-2">{{ r['title'] }}</h5> </a>
+                    {% if g.user %}
+                       <button data-id="{{r.id}}" class='fav btn btn-sm'>
+                         <i class="{% if r.id in recipe_ids %}fas fa-heart fa-2x{% else %}far fa-heart fa-2x{% endif %}"></i></button>
+                    {% endif %}
+                 </div>
+              </div>
+          </div>
+        {% endfor %}
+        <ul id="page-ul" class="pagination justify-content-center">
+          <li class="page-item {{'active' if offset|int  == 0}}"><a class="page-link" href="{{url}}&offset=0">1</a></li>
+          <li class="page-item {{'active' if offset|int == 8}}"><a class="page-link" href="{{url}}&offset=8">2</a></li>
+          <li class="page-item {{'active' if offset|int == 16}}"><a class="page-link" href="{{url}}&offset=16">3</a></li>
+          <li class="page-item {{'active' if offset|int == 24}}"><a class="page-link" href="{{url}}&offset=24">4</a></li>
+          <li class="page-item {{'active' if offset|int == 32}}"><a class="page-link" href="{{url}}&offset=32">5</a></li>
+        </ul>
+        {% else %}
+          <div class="jumbotron my-4">
+            <div class="container">
+              <h1 class="display-4 text-danger text-center"> No more recipes!
+                <a href="/" class="neon btn btn-outline-warning btn-lg m-2"><i class="fas fa-home"></i></a>    
+              </h1> 
+            </div>
+          </div>
+        {% endif %}
+    </div>
+  <!-- <div class="flex"> 
+    <a href="/" class="neon btn btn-outline-warning btn-lg m-2"><i class="fas fa-home"></i></a>
+  </div> -->
+</div>
+{% endblock %}

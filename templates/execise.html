@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container p-3">
+  <div class="row justify-content-md-center">
+    <div class="jumbotron col-6 col-7 text-center">
+      <h4 class="text-warning m-2">Ready for execise? See random pictures and try to repeat it.</h4>
+      <br>   
+      <img class="img-fluid" id="execise" src="/static/images/h1.png" alt="execise">
+      <hr>
+      <div class="input-group-btn">
+        <a href="/execise" class="btn btn-outline-warning btn-lg"> Generate <i class="fas fa-running"></i></a>
+        <a href="/" class="btn btn-outline-info btn-lg m-2"><i class="fas fa-home"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

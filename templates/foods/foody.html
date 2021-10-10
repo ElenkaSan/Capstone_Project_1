@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}what's left in the fridge{% endblock %}
+{% block content %}
+<div class="container">
+  <div id="recipe-info" class="row justify-content-center align-items-center mt-2">
+      {% for recipe in recipes %}
+        <div class="jumbotron1 col-3 col-sm-10-6 m-2">
+          <a href="/recipes/{{recipe.id}}">
+            <div class="card border border-warning mb-4 mx-auto">
+              <img class="card-img-top" src="{{recipe['image']}}" alt="Card image cap"> 
+                <h5 class="text-danger text-center card-title m-2">{{ recipe['title'] }}</h5> </a>
+                  <div class="card-body p-0">
+                      {% if 'likes' not in recipe%}
+                        <p class="card-text text-warning"> How many minutes for preparation? {{recipe['preparationMinutes']}} </p>
+                        <p class="card-text text-warning"> How many minutes for cooking? {{recipe['cookingMinutes']}} </p> 
+                        <p class="card-text text-warning"> How many likes has this recipe? {{recipe['aggregateLikes']}} </p>
+                      {% else %}
+                        <p class="card-text text-warning"> How many your ingridients? {{recipe['usedIngredientCount']}} </p>
+                        <p class="card-text text-warning"> How many missed ingridients? {{recipe['missedIngredientCount']}} </p> 
+                        <p class="card-text text-warning"> How many likes has this recipe? {{recipe['likes']}} </p>
+                      {% endif %}
+                      {% if g.user %}
+                        <button data-id="{{recipe.id}}" class='fav btn btn-sm'>
+                        <i class="{% if recipe.id in recipe_ids %}fas fa-heart fa-2x{% else %}far fa-heart fa-2x{% endif %}">
+                        </i> </button>
+                      {% endif %}
+                  </div>
+        </div>
+  </div> 
+      {% endfor %}
+      <div class="flex"> 
+        <a href="/" class="neon btn btn-outline-warning btn-lg m-2"><i class="fas fa-home"></i></a>
+      </div>
+</div>
+{% endblock %}s

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Random Choice{% endblock %}
+{% block content %}
+<div class="container">
+  {% if recipes %}
+    <div id="recipe-info" class="row justify-content-center align-items-center mt-2">
+      <div class="jumbotron col-3 my-4">
+        <div class="vertical-group">
+          <th><h5 class="text-warning">Refine Your Random Search</h5></th>
+            <tbody>
+              <form class="" id="search" action="/search" role="search">
+               <select class="custom-select" name="diet" id="diet">
+                 <option selected> <span class="text-muted">Diets</span> </option>
+                  {% for diet in g.diets %}
+                   <option value="{{diet}}"> {{diet.capitalize()}} </option>
+                  {% endfor %}
+               </select>
+               <select class="custom-select" name="cuisine" id="cuisine" data-container="body">
+                 <option selected> <span class="text-muted">Cuisines</span> </option>
+                  {% for cuisine in g.cuisines %}
+                   <option value="{{cuisine}}">{{cuisine.capitalize()}}</option>
+                  {% endfor %}
+               </select>
+                <div class="input-group-btn">
+                  <button class="btn btn-outline-warning btn-lg m-2" type="submit"><i class="fas fa-utensils"></i></button>
+                   <a href="/" class="btn btn-outline-info btn-lg m-2"><i class="fas fa-home"></i></a>
+                </div>
+              </form>
+            </tbody>
+        </div>
+      </div>
+      {% for r in recipes %}
+        <div class="jumbotron1 col-3 col-sm-10-6 m-2">
+          <a href="/recipes/{{r.id}}" data-id="{{r.id}}" class="show-recipe">
+            <div class="card border border-warning mb-4 mx-auto">
+              <img src="{{r.image}}" class="card-img-top" alt="{{r.name}}">
+                <div class="card-body py-1">
+                  <h5 class="text-danger text-center card-title m-2">{{ r['title'] }}</h5> </a>
+                    <div class="card-body">
+                      <p class="card-text text-success text-right">Total Cook Time: {{r.readyInMinutes}} minutes</p>
+                      <p class="card-text text-success text-right">Serves: {{r.servings}}</p>
+                    </div>
+                    {% if g.user %}
+                      <button data-id="{{r.id}}" class='fav btn btn-sm'>
+                        <i class="{% if r.id in recipe_ids %}fas fa-heart fa-2x{% else %}far fa-heart fa-2x{% endif %}"></i>
+                      </button>
+                    {% endif %}
+                </div>
+             </div>
+          </a>
+       </div>
+       {% endfor %}
+       {% else %}
+        <div class="jumbotron my-4">
+          <div class="container">
+            <h1 class="display-4 text-danger text-center"> Recipe Not Found!
+              <a href="/" class="neon btn btn-outline-warning btn-lg m-2"><i class="fas fa-home"></i></a>    
+            </h1> 
+          </div>
+        </div>
+       {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,297 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+}
+.con {
+	width: 100%;
+	padding-bottom: 25px;
+	flex-direction: column;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+html,
+body {
+	height: 100%;
+	min-width: 100%;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+body {
+	background: url('/static/images/home.jpeg') no-repeat center center fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-clip: border-box;
+	height: 100%;
+}
+
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.neon {
+  font-family: neon;
+  color: #FB4264;
+  text-shadow: 0 0 3vw #F40A35;
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  text-shadow: 0 0 2vw #2356FF;
+}
+
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+.flux {
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    font-family: 'PT Sans', sans-serif;
+}
+
+@media (max-width: 668px) {
+	body {
+		background-repeat: repeat;
+		background-attachment: local;
+		background-position: right;
+	}
+}
+
+.navbar {
+	background-image: url("/static/images/nav-bg.png");
+	background-size: 100% 100%;
+  }
+
+.box {
+	flex-grow: 1;
+}
+
+.jumbotron {
+	background-color: #2b413885;
+}
+
+.tab {
+	margin-left: 5em;
+   }
+   
+#logo {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin: 0;
+}
+
+#logo1 {
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	margin: 0;
+}
+
+#imgR {
+	width: 200px;
+	margin: 1em;
+}
+
+.logo {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	padding: 0.25rem;
+}
+
+.icon-bar {
+	width: 22px;
+	height: 2px;
+	display: block;
+	transition: all 0.2s;
+	margin-top: 4px;
+}
+
+.icon-bar:first-of-type {
+	margin-top: 0;
+}
+
+.navbar-toggler {
+	border: none;
+	background: transparent !important;
+}
+
+.navbar-toggler .top-bar {
+	transform: rotate(45deg);
+	transform-origin: 10% 10%;
+}
+
+.navbar-toggler .middle-bar {
+	opacity: 0;
+}
+
+.navbar-toggler .bottom-bar {
+	transform: rotate(-45deg);
+	transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+	transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+	opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+	transform: rotate(0);
+}
+
+
+.fav {
+	color: rgb(191, 255, 71);
+}
+
+.fav:hover,
+.fav.active {
+	color: rgb(191, 255, 71);
+}
+
+p {
+	margin: 0.5rem;
+}
+
+ul {
+	list-style: none;
+	margin: 0.1rem;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+a:hover,
+a:active {
+	opacity: 0.9;
+	cursor: pointer;
+	color: rgb(92, 102, 102);
+}
+
+.wrapper {
+	padding: 0.2em;
+	margin: auto;
+	text-align: center;
+	position: relative;
+	width: 100%;
+}
+
+.diets {
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+.diet {
+	width: 135px;
+	margin: 0 1.5em;
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+	*display: inline; 
+	*zoom: 1; 
+	vertical-align: top;
+}
+
+.diet + .diet {
+	margin-left: 2em;
+}
+
+.diet-link:hover,
+.diet-link:focus {
+	opacity: 0.8;
+}
+
+.card {
+	background-color: #2b413885;
+}
+
+.card-title {
+	height: 3.5em;
+}
+
+.card-body {
+	padding: 0.75rem;
+}
+
+.recipe-img {
+	width: 100%;
+	border-radius: 2%;
+	/* object-fit: cover; */
+}
+
+.info-list {
+	border: solid 1px;
+	border-radius: 5px;
+	padding: 0.5em;
+	margin: auto;
+	width: 100%;
+	height: auto;
+}
+
+.recipe-subtitle {
+	margin: 1em auto;
+}
+
+.footer {
+	display: flex;
+	padding: 1rem 0;
+}
+
+.footer ul { 
+	display: flex;
+ }
+
+.footer ul li {
+	margin-left: 16px;
+}
+
