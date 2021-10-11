@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, g, url_for, flash, session, jsonify, make_response, abort
-# from flask_debugtoolbar import DebugToolbarExtension
+from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User, Recipe, Favorite
 from forms import UserForm, LoginForm, UserEditForm
 from sqlalchemy.exc import IntegrityError
@@ -9,14 +9,14 @@ import requests
 # from secrets import API_KEY
 
 app = Flask(__name__)
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres:///recipeTips')
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-   os.environ.get('DATABASE_URL', 'postgres:///recipeTips'))
-
+   os.environ.get('DATABASE_URL', 'postgresql:///recipeTips'))
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'is a secret')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-# toolbar = DebugToolbarExtension(app)
+toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
 API_KEY = '5d52626b0a8b4f4b9d5c9b0f749fc5bb'
