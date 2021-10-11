@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, g, url_for, flash, session, jsonify, make_response, abort
-from flask_debugtoolbar import DebugToolbarExtension
+# from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User, Recipe, Favorite
 from forms import UserForm, LoginForm, UserEditForm
 from sqlalchemy.exc import IntegrityError
@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.environ.get('API_KEY', 'is a secret')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-toolbar = DebugToolbarExtension(app)
+# toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
 API_KEY = '5d52626b0a8b4f4b9d5c9b0f749fc5bb'
@@ -75,10 +75,8 @@ def signup():
             return render_template('users/signup.html', form=form)
 
         do_login(user)
-        # session[CURR_USER_KEY] = new_user.id
         flash("Thank you! You successful created account.", 'success')
         return redirect("/")
-        # return redirect(f"/users/{new_user.id}")
 
     else:
         return render_template('users/signup.html', form=form)

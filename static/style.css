@@ -90,7 +90,7 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6, h8, p, a {
     font-family: 'PT Sans', sans-serif;
 }
 
@@ -102,10 +102,41 @@ h1, h2, h3, h4, h5, h6, p, a {
 	}
 }
 
+.some-paragraph{
+    font-size: 1.8vw;
+}
+
+.some-par{
+    font-size: 2.5vw;
+}
+
 .navbar {
 	background-image: url("/static/images/nav-bg.png");
 	background-size: 100% 100%;
+	-webkit-box-shadow: 0 8px 6px -6px #828283;
+	-moz-box-shadow: 0 8px 6px -6px #828283;
+	box-shadow: 0 8px 6px -6px #828283;
   }
+
+  .navbar-header{
+	display: inline-block!important;
+ }
+
+ @media (min-width: 40em) {
+
+
+	.featurette-heading {
+	  font-size: 50px;
+	}
+  }
+  
+  @media (min-width: 62em) {
+	.featurette-heading {
+	  margin-top: 2rem;
+	}
+  }
+  
+
 
 .box {
 	flex-grow: 1;
@@ -116,6 +147,10 @@ h1, h2, h3, h4, h5, h6, p, a {
 }
 
 .tab {
+	margin-left: 3em;
+   }
+
+.tab1 {
 	margin-left: 5em;
    }
    
@@ -131,6 +166,8 @@ h1, h2, h3, h4, h5, h6, p, a {
 	height: 300px;
 	border-radius: 50%;
 	margin: 0;
+	max-width: 99%;
+    max-height: 99%;
 }
 
 #imgR {
@@ -294,4 +331,3 @@ a:active {
 .footer ul li {
 	margin-left: 16px;
 }
-
