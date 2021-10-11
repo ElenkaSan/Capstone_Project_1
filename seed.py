@@ -1,7 +1,7 @@
 """Seed file create tables for deployment"""
 
-# from models import User, Recipe, Favorite, db
-from app import db
+from models import db, connect_db, User, Recipe, Favorite
+from forms import UserForm, LoginForm, UserEditForm
 import os
 
 # Create all tables
