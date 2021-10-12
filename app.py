@@ -6,7 +6,7 @@ from forms import UserForm, LoginForm, UserEditForm
 from sqlalchemy.exc import IntegrityError
 from helper import diets, cuisines, do_logout, add_recipe_from_api_response
 import requests
-# from secrets import API_KEY
+from secrets import API_KEY
 
 CURR_USER_KEY = "user_id"
 app = Flask(__name__)
@@ -18,7 +18,6 @@ app.config['SQLALCHEMY_ECHO'] = False
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 toolbar = DebugToolbarExtension(app)
 
-API_KEY = '5d52626b0a8b4f4b9d5c9b0f749fc5bb'
 BASE_URL = "https://api.spoonacular.com/"
 
 connect_db(app)
