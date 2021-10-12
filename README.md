@@ -1,4 +1,3 @@
-# Capstone_Project_1
 # Recipe Tips
 ### *Try the app [Recipe Tips](https://recipe-tips.herokuapp.com/)*
 
