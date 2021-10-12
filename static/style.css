@@ -102,14 +102,6 @@ h1, h2, h3, h4, h5, h6, h8, p, a {
 	}
 }
 
-.some-paragraph{
-    font-size: 1.8vw;
-}
-
-.some-par{
-    font-size: 2.5vw;
-}
-
 .navbar {
 	background-image: url("/static/images/nav-bg.png");
 	background-size: 100% 100%;
