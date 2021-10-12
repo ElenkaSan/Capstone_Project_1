@@ -9,9 +9,9 @@ import requests
 # from secrets import API_KEY
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres:///recipeTips')
-# app.config['SQLALCHEMY_DATABASE_URI'] = (
-#    os.environ.get('DATABASE_URL', 'postgresql:///recipeTips'))
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres:///recipeTips')
+app.config['SQLALCHEMY_DATABASE_URI'] = (
+   os.environ.get('DATABASE_URL', 'postgresql:///recipeTips'))
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'is a secret')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
