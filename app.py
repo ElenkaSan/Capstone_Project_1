@@ -8,23 +8,24 @@ from helper import diets, cuisines, do_logout, add_recipe_from_api_response
 import requests
 # from secrets import API_KEY
 
+db.drop_all()
+db.create_all()
+
+CURR_USER_KEY = "user_id"
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres:///recipeTips')
-app.config['SQLALCHEMY_DATABASE_URI'] = (
-   os.environ.get('DATABASE_URL', 'postgresql:///recipeTips'))
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1) or 'postgresql:///recipeTips'
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'is a secret')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_ECHO'] = True
+app.config['SQLALCHEMY_ECHO'] = False
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 toolbar = DebugToolbarExtension(app)
 
-connect_db(app)
 API_KEY = '5d52626b0a8b4f4b9d5c9b0f749fc5bb'
 BASE_URL = "https://api.spoonacular.com/"
 
+connect_db(app)
 # --------------------------- User signup/login/logout 
-CURR_USER_KEY = "user_id"
-
 @app.before_request
 def add_user_to_g():
     """If we're logged in, add curr user to Flask global."""
