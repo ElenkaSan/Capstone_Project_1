@@ -1,18 +1,17 @@
 # Recipe Tips
 ### *Try the app [Recipe Tips](https://recipe-tips.herokuapp.com/)*
 
- The website `Recipe Tips` is designed for people who would like to know what they can cook 
+  The website `Recipe Tips` is designed for people who would like to know what they can cook 
 from what "in the fridge left" / any food left, can see milkshakes, yogurts.
-
-Users can also see random search and allows to search food by name, 
+  Users can also see random search and allows to search food by name, 
 or make complex search for recipes using natural language queries,
 such as “gluten free brownies without sugar” or “low fat vegan cupcakes” or
 write detailed information such as vegan, vegetarian, pescetarian, gluten free, grain free,
 dairy free, high protein, low sodium, low carb etc.
-
-That can help to create special diets/dietary requirements for users. Good for mothers
-and fathers who would like to create healthy recipe lists for their kids.
-Can print recipes. And after creating an account able to make a list of favorite recipes for every day or for every week etc. 
+  That can help to create special diets/dietary requirements for users. 
+Good for mothers and fathers who would like to create healthy recipe lists for their kids. 
+Can print recipes. 
+And after creating an account able to make a list of favorite recipes for every day or for every week etc. 
 Even warm up with some food jokes and repeat exercises from random pictures like stay in touch with sport.
 
 
@@ -44,7 +43,7 @@ $ createdb recipeTips
 ```
 2)
 ```sh
-    $ ipython
+$ ipython
 In [1]: run seed.py
 In [2]: db.create_all()
 In [1]: quit()
