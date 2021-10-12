@@ -38,6 +38,7 @@ Sign up to use the Data API.
 API_KEY="YOURKEYHERE"
 ```
 Create database 'recipeTips' in the Terminal:
+
 1)
 ```sh
 $ createdb recipeTips
