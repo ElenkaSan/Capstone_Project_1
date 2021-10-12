@@ -8,9 +8,6 @@ from helper import diets, cuisines, do_logout, add_recipe_from_api_response
 import requests
 # from secrets import API_KEY
 
-db.drop_all()
-db.create_all()
-
 CURR_USER_KEY = "user_id"
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres:///recipeTips')
