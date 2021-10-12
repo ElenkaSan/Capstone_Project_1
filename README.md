@@ -2,8 +2,7 @@
 ### *Try the app [Recipe Tips](https://recipe-tips.herokuapp.com/)*
 
 The website `Recipe Tips` is designed for people who would like to know what they can cook 
-from what "in the fridge left" / any food left, can see milkshakes, yogurts. 
-Users can also see random search and allows to search food by name, 
+from what "in the fridge left" / any food left, can see milkshakes, yogurts. Users can also see random search and allows to search food by name, 
 or make complex search for recipes using natural language queries,
 such as “gluten free brownies without sugar” or “low fat vegan cupcakes” or
 write detailed information such as vegan, vegetarian, pescetarian, gluten free, grain free,
@@ -20,7 +19,7 @@ Even warm up with some food jokes and repeat exercises from random pictures like
 ### Data
 For this CP database that takes food-related information from the [Spooncular database](https://api.spoonacular.com/)
 
-- `DB schema:`
+`DB schema:`
   - user table
   - recipe table
   - favorite recipe table
