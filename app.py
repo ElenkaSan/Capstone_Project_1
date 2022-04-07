@@ -311,10 +311,10 @@ def remove_favorite(id):
     if not g.user:
         flash("Access unauthorized.", "danger")
         return redirect("/")
-    recipe = Recipe.query.filter_by(id=id).first()
+    favorite = Favorite.query.filter_by(user_id=g.user.id,recipe_id=id).first()
 
     try:
-       db.session.delete(recipe)
+       db.session.delete(favorite)
        db.session.commit()
 
     except Exception as e:
@@ -322,7 +322,7 @@ def remove_favorite(id):
         return jsonify(errors=str(e))
     
     # flash("Recipe removed from favorites", "danger")
-    return jsonify(recipe=recipe.serialize())
+    return {"outcome":"success"}
 
 
 @app.errorhandler(404)
