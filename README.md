@@ -17,7 +17,7 @@ Even warm up with some food jokes and repeat exercises from random pictures like
 
 
 ### Data
-For this CP database that takes food-related information from the [Spooncular database](https://spoonacular.com/)
+For this CP database that takes food-related information from the [Spooncular database](https://spoonacular.com/food-api)
 
 `DB schema:`
   - user table
