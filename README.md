@@ -17,7 +17,7 @@ Even warm up with some food jokes and repeat exercises from random pictures like
 
 
 ### Data
-For this CP database that takes food-related information from the [Spooncular database](https://api.spoonacular.com/)
+For this CP database that takes food-related information from the [Spooncular database](https://spoonacular.com/)
 
 `DB schema:`
   - user table
@@ -32,7 +32,7 @@ To get the code on your local machine, create a PostgreSQL database, and set up 
 > pip3 install -r requirements.txt
 > source venv/bin/activate
 ```
-Sign up [here](https://api.spoonacular.com/) to use the Data API.
+Sign up [here](https://spoonacular.com/) to use the Data API.
   Save your API key in a file called dotenv using this format:
 ```sh
 API_KEY="YOURKEYHERE"
