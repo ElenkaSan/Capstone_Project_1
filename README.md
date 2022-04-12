@@ -32,7 +32,7 @@ To get the code on your local machine, create a PostgreSQL database, and set up 
 > pip3 install -r requirements.txt
 > source venv/bin/activate
 ```
-Sign up here the [Spooncular database](https://api.spoonacular.com/) to use the Data API.
+Sign up [here](https://api.spoonacular.com/) to use the Data API.
   Save your API key in a file called dotenv using this format:
 ```sh
 API_KEY="YOURKEYHERE"
