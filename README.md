@@ -56,6 +56,10 @@ $ flask run
 ```
 You can now navigate to `http://127.0.0.1:5000/` to start exploring Recipe Tips.
 
+<img width="1440" alt="Screen Shot 2022-06-04 at 11 08 28 PM" src="https://user-images.githubusercontent.com/75818489/172033707-8df5b309-a733-4a40-98ac-1d21e6728a69.png">
+
+<img width="1440" alt="Screen Shot 2022-06-04 at 11 12 44 PM" src="https://user-images.githubusercontent.com/75818489/172033712-2f8a7399-3d11-48e0-89d8-e7b9cf8dbd00.png">
+
 ### Future-Features
   - The recipe feature with favorite food:
     - Automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists
