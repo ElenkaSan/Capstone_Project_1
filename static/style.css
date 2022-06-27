@@ -36,6 +36,11 @@ body {
 	height: 100%;
 }
 
+.T {
+	text-shadow: 1px 2px #082180;
+  }
+
+
 @font-face {
   font-family: neon;
   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
