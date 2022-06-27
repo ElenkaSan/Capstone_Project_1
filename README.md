@@ -1,5 +1,5 @@
 # Recipe Tips
-### *Try the app [Recipe Tips](https://recipe-tips.herokuapp.com/)*
+### *Try the app [Recipe Tips](https://recipe-tips.herokuapp.com/)* I did small updates :) Enjoy!
 
 The website `Recipe Tips` is designed for people who would like to know what they can cook 
 from what "in the fridge left" / any food left, can see milkshakes, yogurts. Users can also see random search and allows to search food by name, 
