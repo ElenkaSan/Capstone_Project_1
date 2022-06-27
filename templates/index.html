@@ -1,21 +1,38 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<div class="container p-0">
-  <div class="my-4 px-5">
+<style>
+  body {
+    background: url('/static/images/home.jpeg') no-repeat center center fixed;
+	  background-size: cover;
+	  -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-clip: border-box;
+  	height: 100%;
+  }
+</style>
+  <div class="container my-4">
     <h1 class="d-flex m-2 p-1 text-warning display-3 align-content-lg-around justify-content-center align-items-center"> 
        Welcome to the Recipe Tips </h1>
-        <div class="d-flex align-items-top d-inline">
-          <h5 class="text-light col-8 col-6">
-          <div class="jumbotron my-4 px-4 p-4 m-lg-5">
-            For a quick start, just click on the Logo and see the random recipes auto populated. <i class="far fa-hand-point-right text-success display-6"></i> <br>
-            <hr class="my-2 px-6"> Select food by name, or complex recipe search like dairy free, high protein, low sodium by using the search bar.  
-            <br>On the left top navbar just click on the badge and can use recipe searth "what's left in your fridge" or random recipes.  
-            <hr class="my-2 px-6"> <p class="tab1 flex text-success display-6"> Bon Appetit! </p>
+       <div class="d-flex align-items-top d-inline float-left">
+        <div class="jumbotron col-md-10 my-4 px-6 offset-md-2 justify-content-center">
+          <div className="card bg-light">
+            <div className="card-body">
+              <div class="offset-md-2">
+                <a href="/random"><img class="d-flex float-right m-lg-5" id="logo1" src="/static/images/logos4.png" alt="logo"> </a>
+              </div>  
+              <h5 class="text-light">
+                For a quick start, just click on the Logo and see the random recipes auto populated. 
+                <br><i class="far fa-hand-point-right text-success display-6"></i> <br>
+                Select food by name, or complex recipe search like dairy free, high protein, low sodium by using the search bar.  
+                <br>On the left top navbar just click on the badge and can use recipe searth "what's left in your fridge" or random recipes.  
+              </h5>
+            </div>
+            <br>
+            <p class="text-center text-success display-6"> Bon Appetit! </p>
           </div>
-        </h5> 
-        <a href="/random"><img class="d-flex m-lg-5" id="logo1" src="/static/images/logos4.png" alt="logo"> </a>
       </div>
-  </div>
+    </div>
 </div>
 {% endblock %}
