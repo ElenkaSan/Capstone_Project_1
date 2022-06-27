@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<div class="container p-3">
-  <div class="row justify-content-md-center">
-    <div class="jumbotron col-6 col-7 text-center">
+<style>
+  body {
+    background: url('/static/images/home.jpeg') no-repeat center center fixed;
+	  background-size: cover;
+	  -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-clip: border-box;
+  	height: 100%;
+  }
+</style>
+  <div class="container my-4">
+    <div class="jumbotron my-2 col-md-8 offset-md-2">
       <h4 class="text-warning m-2">Ready for execise? See random pictures and try to repeat it.</h4>
       <br>   
       <img class="img-fluid" id="execise" src="/static/images/h1.png" alt="execise">
@@ -13,6 +23,5 @@
         <a href="/" class="btn btn-outline-info btn-lg m-2"><i class="fas fa-home"></i></a>
       </div>
     </div>
-  </div>
 </div>
 {% endblock %}
