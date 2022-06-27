@@ -1,27 +1,37 @@
 {% extends 'base.html' %}
 {% block title %}Nice Jokes{% endblock %}
 {% block content %}
-<div class="container p-4">
-  <div class="row justify-content-md-center">
-    <div class="jumbotron col-10 my-4 px-6 justify-content-center">
-        <div class="justify-content-center align-items-center">
-            <h2 class="text-warning text-center p-2">
-                You have left some food in your fridge. <br>
-                But you don't know what you can cook from this. <br>
-                So lets try to find out the nice recipes for you. </h2>
-                <br>
-                <form action="/foody"> <a href="/foody" class="show-recipe">  </a>
-                    <div class="input-group mb-3 justify-content-center align-items-center" style="max-width: 100%;">
-                      <input type="text" class="form-control" placeholder="Greek yogurt or apples,flour,sugar" aria-label="Ingridients" aria-describedby="button-addon2" name="ingridients">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
-                        </div>          
-                    </div>
-                </form>
+<style>
+  body {
+    background: url('/static/images/home.jpeg') no-repeat center center fixed;
+	  background-size: cover;
+	  -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-clip: border-box;
+  	height: 100%;
+  }
+</style>
+  <div class="container my-4">
+    <div class="jumbotron my-2 col-md-8 offset-md-2 justify-content-center">
+      <div class="justify-content-center align-items-center">
+        <h2 class="text-warning text-center p-2">
+          You have left some food in your fridge. <br>
+          But you don't know what you can cook from this. <br>
+          So lets try to find out the nice recipes for you. </h2>
+          <br>
+          <form action="/foody"> <a href="/foody" class="show-recipe">  </a>
+            <div class="input-group mb-3 justify-content-center align-items-center" style="max-width: 100%;">
+              <input type="text" class="form-control" placeholder="Greek yogurt or apples,flour,sugar" aria-label="Ingridients" aria-describedby="button-addon2" name="ingridients">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
+                </div>          
+            </div>
+          </form>
         </div>
         <hr class="my-2 px-6"> 
           <h2 class="text-secondary m-2 text-center"> Some bonus <i class="fas fa-laugh-wink"></i> <br> Let's warm up with a food joke: </h2> <br>
-          <h4 class ="text-light m-2">  {{ joke }} </h4>
+          <h4 class ="text-light m-2 text-left">  {{ joke }} </h4>
           <hr class="my-2 px-6"> 
           <div class="flex"> 
             <a href="/" class="btn btn-outline-info btn-lg m-2"><i class="fas fa-home"></i></a>
