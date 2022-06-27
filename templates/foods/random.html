@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}Random Choice{% endblock %}
 {% block content %}
+<style>
+  body {
+    background: url('/static/images/home.jpeg') no-repeat center center fixed;
+	  background-size: cover;
+	  -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-clip: border-box;
+  	height: 100%;
+  }
+</style>
 <div class="container">
   {% if recipes %}
     <div id="recipe-info" class="row justify-content-center align-items-center mt-2">
-      <div class="jumbotron col-3 my-4">
+      <div class="jumbotron col-3 col-6 col-md-4">
         <div class="vertical-group">
           <th><h5 class="text-warning">Refine Your Random Search</h5></th>
             <tbody>
@@ -30,15 +41,15 @@
         </div>
       </div>
       {% for r in recipes %}
-        <div class="jumbotron1 col-3 col-sm-10-6 m-2">
+        <div class="col-3 col-6 col-md-4">
           <a href="/recipes/{{r.id}}" data-id="{{r.id}}" class="show-recipe">
             <div class="card border border-warning mb-4 mx-auto">
               <img src="{{r.image}}" class="card-img-top" alt="{{r.name}}">
-                <div class="card-body py-1">
-                  <h5 class="text-danger text-center card-title m-2">{{ r['title'] }}</h5> </a>
-                    <div class="card-body">
-                      <p class="card-text text-success text-right">Total Cook Time: {{r.readyInMinutes}} minutes</p>
-                      <p class="card-text text-success text-right">Serves: {{r.servings}}</p>
+                <div class="card-body py-0">
+                  <h5 class="T text-danger card-title">{{ r['title'] }}</h5> </a>
+                    <div class="card-body text-light">
+                      <p class="card-text text-right">Total Cook Time: {{r.readyInMinutes}} minutes</p>
+                      <p class="card-text text-right">Serves: {{r.servings}}</p>
                     </div>
                     {% if g.user %}
                       <button data-id="{{r.id}}" class='fav btn btn-sm'>
