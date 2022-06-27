@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 {% block title %}Registration{% endblock %}
 {% block content %}
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div style="opacity: 0.9;" class="jumbotron col-md-8 my-4 px-4">
+<style>
+  body {
+    background: url('/static/images/home.jpeg') no-repeat center center fixed;
+	  background-size: cover;
+	  -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-clip: border-box;
+  	height: 100%;
+  }
+</style>
+<div class="container my-4">
+  <div style="opacity: 0.9;" class="jumbotron col-md-8 offset-md-2 justify-content-center">
       <h1 class="my-3 text-center text-warning font-italic">Registration form</h1>
         <form id="signup-form" method='POST'>
           <div class="form-group">
@@ -33,6 +43,5 @@
           </div>
         </form>
     </div>
-  </div>
 </div>
 {% endblock %}
