@@ -1,16 +1,27 @@
 {% extends 'base.html' %}
 {% block title %}{{recipes['title']}}{% endblock %}
 {% block content %}
-<div class="container text-secondary">
+<style>
+  body {
+    background: url('/static/images/home.jpeg') no-repeat center center fixed;
+	  background-size: cover;
+	  -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-clip: border-box;
+  	height: 100%;
+  }
+</style>
+<div class="container my-4 text-secondary">
   {% if recipes %}
-  <div id="recipe-d" class="row justify-content-md-center">
-    <div class="jumbotron col-md-9 my-4 px-4">
+    <div id="recipe-d" >
+      <div class="jumbotron my-2 col-md-8 offset-md-2 justify-content-center">
       <h2 class="text-warning display-4 text-info text-center">{{recipes['title']}}</h2>
         <button id="print" class="btn btn-secondary btn-lg m-2"><i class="fas fa-print"></i>
         </button>
         <a href="/" class="btn btn-info btn-lg m-2"><i class="fas fa-home"></i></a>
           {% if g.user %}
-           <!-- <button data-id="{{recipes.id}}" class='fav btn btn-sm'> -->
+          <!-- <button data-id="{{recipes.id}}" class='fav btn btn-sm'> -->
           {% else %}
           <a href="/login">
             <button type="button" class="btn btn-outline-danger m-2"><i class="fas fa-heart fa-2x">
@@ -24,7 +35,7 @@
                 <img class="recipe-img" src="{{recipes.image}}" alt="{{recipes.name}}">
               </div>
               <div class="card-body">
-              <h3 class="text-center text-info recipe-subtitle">Steps</h3>
+              <h3 class="T text-center text-info recipe-subtitle">Steps</h3>
               {% for recipe in recipes.analyzedInstructions %}
               <ul class="list-group list-group-flush text-light">
                   {% if recipe.name %}
@@ -45,7 +56,7 @@
               {% endfor %}
             </div>
           </div>
-          <div class="col-md-5 col-lg-5 m-2">
+          <div class="T col-md-5 col-lg-5 m-2">
             <div class="info-list border-warning">
               <ul>
                 <li class="lead my-1">Total Cook Time: {{recipes.readyInMinutes}} minutes</li>
@@ -102,7 +113,7 @@
             </div>
           </div>
           <a href="{{recipes.sourceUrl}}" target="_blank" class="card-text mb-1 d-block text-center">
-            <h6 class="text-secondary font-weight-bold text-left"> Recipe from 
+            <h6 class="T text-secondary font-weight-bold text-left"> Recipe from 
               <i class="fas fa-pizza-slice"></i> {{recipes.sourceName}}</h6> </a>
         </div>
     </div>
