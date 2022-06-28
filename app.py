@@ -193,7 +193,7 @@ def show_recipes():
     res = requests.get(f"{BASE_URL}/recipes/random", params={ "apiKey": API_KEY, "number": 8 })
     data = res.json()
    
-    if data.get('recipes', None):
+    if data.get('recipes') == 0:
         flash("Sorry, search limit reached!", "warning")
         return render_template("index.html")
     recipes = data['recipes']
