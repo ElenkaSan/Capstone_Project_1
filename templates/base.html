@@ -80,12 +80,10 @@
        
         </div>
       </nav>
-      <div class="row">
-        <div class="container text-center w-25">
+      <div class="container lead font-weight-bold text-center col-md-8 offset-md-2 p-2">
         {% for category, message in get_flashed_messages(with_categories=True) %}
         <div class="alert alert-{{ category }}"> <h5> {{ message }} </h5></div>
         {% endfor %}
-        </div>
       </div>
       {% block content %}
 
