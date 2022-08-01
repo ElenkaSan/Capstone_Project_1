@@ -6,12 +6,12 @@ from forms import UserForm, LoginForm, UserEditForm
 from sqlalchemy.exc import IntegrityError
 from helper import diets, cuisines, do_logout, add_recipe_from_api_response
 import requests
-from secrets import API_KEY
+# from secrets import API_KEY
 
 CURR_USER_KEY = "user_id"
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres:///recipeTips')
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1) or 'postgresql:///recipeTips'
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres:///recipeTips')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1) or 'postgresql:///recipeTips'
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'is a secret')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
@@ -19,6 +19,7 @@ app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 toolbar = DebugToolbarExtension(app)
 
 BASE_URL = "https://api.spoonacular.com/"
+API_KEY = "00f4865fadd742e1b6619374dbf539cc" 
 
 connect_db(app)
 # --------------------------- User signup/login/logout 
