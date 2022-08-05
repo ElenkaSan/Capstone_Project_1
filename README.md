@@ -60,6 +60,9 @@ You can now navigate to `http://127.0.0.1:5000/` to start exploring Recipe Tips.
 
 <img width="1440" alt="Screen Shot 2022-06-04 at 11 12 44 PM" src="https://user-images.githubusercontent.com/75818489/172033712-2f8a7399-3d11-48e0-89d8-e7b9cf8dbd00.png">
 
+<img width="1249" alt="Screen Shot 2022-06-12 at 4 40 30 PM" src="https://user-images.githubusercontent.com/75818489/183158139-b85e544a-cea8-42ae-a36e-920acbb2ac36.png">
+
+
 ### Future-Features
   - The recipe feature with favorite food:
     - Automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists
