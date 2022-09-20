@@ -74,6 +74,20 @@ You can now navigate to `http://127.0.0.1:5000/` to start exploring Recipe Tips.
 
 *Stretch goals:*
   - Share favorite recipes lists with other users on the site. Good for family members, that they can add this list to their account.
+  
+Frontend:
+  - HTML templates using Jinja and WTForms for forms
+  - Design and interaction using JavaScript, Bootstrap, Font Awesome and raw CSS
+  
+Backend:
+  - Routes and Models using Python3 and Flask
+  - SQLAlchemy as a database ORM
+  - Database using PostgreSQL
+  - AJAX requests using Axios
+  -RESTful APIs
+
+Deployment:
+  - Deployed on Heroku Server
 
 Feel free to improve or contribute. Pull requests are always welcome!
 
