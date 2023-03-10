@@ -6,7 +6,7 @@ from forms import UserForm, LoginForm, UserEditForm
 from sqlalchemy.exc import IntegrityError
 from helper import diets, cuisines, do_logout, add_recipe_from_api_response
 import requests
-# from secrets import API_KEY
+API_KEY = os.getenv("API_KEY")
 
 CURR_USER_KEY = "user_id"
 app = Flask(__name__)
