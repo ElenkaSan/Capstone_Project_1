@@ -10,7 +10,10 @@ API_KEY = os.getenv("API_KEY")
 
 CURR_USER_KEY = "user_id"
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres:///recipeTips')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres://recipetips_user:48aCr8j0P5fs7IiDTrSsAUwc13XtkyE1@dpg-cg5t0c1mbg5ab7i1lru0-a.oregon-postgres.render.com/recipetips
+')
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres:///recipeTips')
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1) or 'postgresql:///recipeTips'
 # app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'is a secret')
 app.config['SECRET_KEY'] = os.environ.get('API_KEY', 'is a secret')
