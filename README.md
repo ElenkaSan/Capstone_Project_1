@@ -87,7 +87,7 @@ Backend:
   -RESTful APIs
 
 Deployment:
-  - Deployed on Heroku Server
+  - Deployed on [Render Server](https://render.com/)
 
 Feel free to improve or contribute. Pull requests are always welcome!
 
